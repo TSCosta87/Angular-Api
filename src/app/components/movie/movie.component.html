@@ -1,0 +1,32 @@
+<div class="container mt-5 mb-5 shadow rounded-8">
+  <div class="row mb-5">
+    <div class="col-4 mx-auto">
+
+      <form>
+      <mdb-form-control>
+        <input name="search" [(ngModel)]="search" mdbInput type="text" id="form1" class="form-control  form-control-lg mt-5" />
+        <label mdbLabel class="form-label" for="form1">Search: {{search}}</label>
+      </mdb-form-control>
+      </form>
+
+      <button (click)="getMovies()" type="button" class="btn btn-outline-warning btn-rounded mt-2 w-100" mdbRipple>Search</button>
+
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-3" *ngFor="let movie of movies">
+
+      <div class="card mt-3">
+        <img [src]="movie.Poster" class="card-img-top" alt="Fissure in Sandstone"/>
+        <div class="card-body">
+          <h5 class="card-title">{{ movie.Title }}</h5>
+          <p class="card-text">{{movie.Type}}  |  {{ movie.Year }}</p>
+          <a [routerLink]="['/movie', movie.imdbID]" class="btn btn-outline-warning btn-rounded hover-shadow-soft">Button</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
